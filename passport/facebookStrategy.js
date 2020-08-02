@@ -7,7 +7,7 @@ if (!process.env.IS_LIVE) {
 }
 const facebookClientID = process.env.FACEBOOK_APP_ID || config.facebookAppId;
 const facebookClientSecret = process.env.FACEBOOK_APP_SECRET || config.facebookAppSecret
-const callbackURL = process.env.IS_LIVE ? "https://www.pointsofcontact.org/auth/facebook/callback/" :
+const callbackURL = process.env.IS_LIVE ? "https://www.yourWebsite.com/auth/facebook/callback/" :
   "http://localhost:5000/auth/facebook/callback";
 
 const strategy = (new FacebookStrategy(
