@@ -1,22 +1,30 @@
 import React from 'react'
 
-import Profile from '../components/Profile/Profile'
-import Home from '../components/Home/Home'
-
 import {
-    Switch,
-    Route,
-  } from "react-router-dom";
+  Switch,
+  Route,
+} from "react-router-dom";
+
+import Home from '../components/Home/Home'
+import AddRecipe from './AddRecipe/AddRecipe';
+import LocalLogin from './LocalLogin/LocalLogin';
 
 const Routes = () => {
     return (
         <Switch>
-        <Route path="/profile">
-          <Profile />
+        
+        <Route path={["/add-recipe/:id","/add-recipe"]}>
+          <AddRecipe />
         </Route>
+
+        <Route path="/login-local">
+          <LocalLogin />
+        </Route>
+
         <Route path="/">
           <Home />
         </Route>
+
       </Switch>
     )
 

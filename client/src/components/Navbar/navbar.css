@@ -1,0 +1,23 @@
+.navbar{
+   background: #424284;
+   color:white;
+  }
+
+.navbar ul{
+    margin:0;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    padding:10px 0px;
+    margin-right:20px;
+}
+
+.navbar ul li{
+  margin:0px 15px;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.4em;
+  }

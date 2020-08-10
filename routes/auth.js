@@ -3,6 +3,18 @@ const passport = require('passport')
 
 const reidrectUrl = process.env.IS_LIVE ? '/' : 'http://localhost:3000'
 
+//only allow local login when the site is not live.
+if(!process.env.IS_LIVE){
+    router.post('/loginlocal',
+    passport.authenticate('local'),
+    function(req, res) {
+      // If this function gets called, authentication was successful.
+      // `req.user` contains the authenticated user.
+      res.json(req.user);
+    });
+  
+}
+
 // Redirect the user to Facebook for authentication.  When complete,
 // Facebook will redirect the user back to the application at
 //     /auth/facebook/callback

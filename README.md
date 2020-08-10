@@ -13,4 +13,4 @@ What's included.
 What you will still need to setup:
 - There is a folder i made called config with a file key.js, here you export your keys. 
 - Your own mongodb (live or local)
-- Facebook clinet key and app key
+- Facebook client key and app key

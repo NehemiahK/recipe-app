@@ -1,0 +1,33 @@
+.recipe-form label,input,textarea{
+    display: block;
+    max-width:350px;
+}
+
+.recipe-form label,button{
+    font-size: 20px;
+}
+
+.recipe-form label{
+    margin-bottom: 20px;
+}
+.recipe-form button{
+    padding: 10px;
+}
+
+.recipe-form{
+    align-items: center;
+    max-width: 350px;
+    margin: 0px auto;
+}
+
+.recipe-form input,select{
+    font-size: 20px;
+    padding: 10px;
+}
+
+.ingredient-item input{
+    display: inline;
+}
+.ingredient-item input{
+    width:100px;
+}

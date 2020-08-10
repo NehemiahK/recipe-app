@@ -1,0 +1,37 @@
+.recipe-item{
+    list-style: none;
+    padding: 20px 40px;
+    margin-bottom: 10px;
+    box-shadow: 4px 4px 10px #9a9494ad;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.recipe-item .source{
+    font-size: 0.5em;
+}
+
+.expanded-recipe{
+    font-size: 0.4em;
+}
+
+.tags{
+    margin-top: 10px;
+}
+.tags span{
+    background: #35a289;
+    margin-right: 5px;
+    padding: 5px 15px;
+    color: white;
+    font-weight: 700;
+}
+
+.action-button{
+    all: unset;
+    text-decoration: none;
+    color: white;
+    font-size: 0.6em;
+    background: #3f3fab;
+    padding: 0px 25px;
+    margin: 5px;
+}

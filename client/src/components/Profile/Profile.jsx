@@ -1,5 +1,5 @@
 import React,{useEffect,useContext, useState} from 'react'
-
+import {updateUser} from '../../api/user'
 import {UserContext} from '../../context/UserContext'
 
 const Profile = () => {
@@ -16,25 +16,14 @@ const Profile = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-
-        fetch("/api/user",{
-            method: "PUT",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Cache': 'no-cache' 
-              },
-            credentials: 'same-origin',
-            body: JSON.stringify(userForm)
-          })
-          .then(res => res.json())
-          .then(data => setUser(data))
+        updateUser(userForm).then(data => setUser(data))
     }
 
   useEffect(()=>{
-      let firstName = user.firstName || ''
-      let lastName = user.lastName || ''
+    if(user){
+      const {firstName,lastName} = user
       setUserForm({firstName,lastName})
+    }
   },[user])
 
     return <div>

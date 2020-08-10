@@ -17,7 +17,6 @@ const strategy = (new FacebookStrategy(
     callbackURL: callbackURL
   },
   function (accessToken, refreshToken, profile, done) {
-    //console.log(strategy);
 
     User.findOne({ facebookId: profile.id }).then((existingUser) => {
       if (existingUser) {
