@@ -16,8 +16,8 @@ const addUserDetails = (req, res, next) => {
 }
 
 const getUserDetails = (req, res, next) => {
-    res.json(req.user || {})
-    console.log(req.user || {})
+    res.json(req.user)
+    console.log(req.user)
 }
 
 module.exports = { addUserDetails, getUserDetails }
