@@ -1,6 +1,6 @@
 const APPROVED_STATUS = 1
 
-export const isApproved = (req, res, next) => {
+const isApproved = (req, res, next) => {
     const userStatus = req.user && req.user.status
 
     if (userStatus >= APPROVED_STATUS) {
@@ -9,3 +9,5 @@ export const isApproved = (req, res, next) => {
         res.status(403).json({ err: 'Unauthorized, please contact a moderator' });
     }
 }
+
+module.exports = { isApproved}
