@@ -1,35 +1,36 @@
-import React,{useContext} from 'react'
-import {Link} from "react-router-dom";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 
-import {UserContext} from '../../context/UserContext'
+import { UserContext } from "../../context/UserContext";
 
-import './navbar.css'
-import LoginButton from '../LoginButton/LoginButton';
+import "./navbar.css";
+import LoginButton from "../LoginButton/LoginButton";
 
 const pages = [
-  {path:'/',label:'Home'},
-  {path:'/add-recipe',label:'Add a Recipe',onlyLoggedIn:true},
-]
+  { path: "/", label: "Home" },
+  { path: "/add-recipe", label: "Add a Recipe", onlyLoggedIn: true },
+];
 
 const Navbar = () => {
-  const {user : {loggedIn} } = useContext(UserContext)
+  const {
+    user: { loggedIn },
+  } = useContext(UserContext);
 
-    return(
-        <nav className='navbar'>
-        <ul>
-          {pages.map(({path,label,onlyLoggedIn}) => {
-           return onlyLoggedIn && !loggedIn ? <></>:
-          <li key={path}>
-            <Link to={path}>{label}</Link>
-          </li>
-          }
-    )}
-          
-          <LoginButton loggedIn={loggedIn}/>
-        
-        </ul>
-      </nav>
-    )
-}
+  return (
+    <nav className="navbar">
+      <ul>
+        {pages.map(({ path, label, onlyLoggedIn }) => {
+          return onlyLoggedIn && !loggedIn ? null : (
+            <li key={path}>
+              <Link to={path}>{label}</Link>
+            </li>
+          );
+        })}
 
-export default Navbar
+        <LoginButton loggedIn={loggedIn} />
+      </ul>
+    </nav>
+  );
+};
+
+export default Navbar;
