@@ -8,7 +8,7 @@ const RecipeItem = ({title,source ='', _id, deleteRecipeById, ...props}) => {
     const [expanded,setExpanded] = useState(false)
 
     return <li className='recipe-item'>
-        <div onClick={()=> setExpanded(expand => !expand)}>
+        <div className="recipe-details" onClick={()=> setExpanded(expand => !expand)}>
             <div>{title}</div>
             <div className='source'>Source: {source || ''}</div>
 
@@ -26,7 +26,7 @@ const RecipeItem = ({title,source ='', _id, deleteRecipeById, ...props}) => {
 
 const ExpandedDetails = ({ingredients,instructions,format,ingredientText,tags}) => {
     return <div className='expanded-recipe'>
-        <div><strong>Ingredients</strong></div>
+        <div className="ingredients"><strong>Ingredients</strong></div>
         {format === 'list' && 
             <div>
                 {ingredients.map(({ingredient,amount,id}) => <div key={id}>
@@ -37,7 +37,7 @@ const ExpandedDetails = ({ingredients,instructions,format,ingredientText,tags}) 
 
     {format === 'text' && <div>{ingredientText}</div>}
      
-        <div><strong>Instructions</strong></div>
+        <div className="instructions"><strong>Instructions</strong></div>
         <div>{instructions}</div>
 
         {tags.length > 0 && 
