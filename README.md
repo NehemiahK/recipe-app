@@ -17,6 +17,10 @@ module.exports = {
     facebookAppSecret:'',
 }
 ```
+## Deployment
+- Be sure to include the exported keys in your configuration vars (Heroku for example).
+- Facebook App ID and secret can both be found in the basic settings for your app.
+- Remember to change the auth URL on Facebook once you've deployed your app.
 
 ## Bugs
 
