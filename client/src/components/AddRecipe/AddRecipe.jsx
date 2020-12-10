@@ -4,11 +4,19 @@ import './addrecipe.css'
 import {addRecipe,getRecipe,editRecipe } from '../../api/recipe'
 import { useParams } from 'react-router-dom'
 
+import TextField from '@material-ui/core/TextField';
+
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
+
 const recipeSchema = {
     title: '',
     source: '',
     instructions: '',
-    format:'list',
+    format:'text',
     ingredientText:'',
     tags:''
 }
@@ -88,30 +96,28 @@ const AddRecipe = () => {
             msg = 'Your recipe has been added'
         }
         alert(msg)
+        window.location.replace("/")
     }
 
     return <div>
         <form onSubmit={handleFormSubmit} className='recipe-form'>
 
-          <label>
-              Recipe Name:
-            <input type="text" name='title' value={recipe.title} 
+        <TextField label="Recipe Name" name='title' value={recipe.title} fullWidth
             onChange={(e) => handleRecipeUpdate(e)} />
-          </label>  
 
-          <label>
-              Source:
-            <input type="text" name='source' value={recipe.source} 
-            onChange={(e) => handleRecipeUpdate(e)}  />
-          </label>  
+        <TextField label="Source" name='source' value={recipe.source} fullWidth
+            onChange={(e) => handleRecipeUpdate(e)} />
 
-          <label>
-               Ingredient Format:
-                <select value={recipe.format} onChange={(e) => handleRecipeUpdate(e)} name='format'>
-                    <option value={'list'}>List</option>
-                    <option value={'text'}>Text</option>
-                </select>
-          </label>  
+    <FormControl fullWidth style={{margin:'10px 0px'}}>
+        <InputLabel id="ingredient-format">Ingredient Format</InputLabel>
+        <Select
+          labelId="ingredient-format"
+          value={recipe.format} onChange={(e) => handleRecipeUpdate(e)} name='format'
+        >
+          <MenuItem value={'list'}>List</MenuItem>
+          <MenuItem value={'text'}>Text</MenuItem>
+        </Select>
+      </FormControl>
 
         {recipe.format === 'list' &&
         
@@ -126,27 +132,36 @@ const AddRecipe = () => {
           </label> }
 
           {recipe.format === 'text' && 
-                <label>
-                Ingredients:
-                <textarea type="text" name='ingredientText' value={recipe.ingredientText} 
-                onChange={(e) => handleRecipeUpdate(e)}  />
-            </label>  
+                  <TextField
+                  style={{margin:'10px 0px'}}
+                  fullWidth
+                  label="Ingredients"
+                  multiline
+                  rows={8}
+                  variant="outlined"
+                  name='ingredientText' value={recipe.ingredientText} 
+                  onChange={(e) => handleRecipeUpdate(e)} 
+                />
           }
 
-          <label>
-              Instructions:
-            <textarea type="text" name='instructions' value={recipe.instructions} 
-            onChange={(e) => handleRecipeUpdate(e)}  />
-          </label>  
+            <TextField
+                  style={{margin:'10px 0px'}}
+                  fullWidth
+                  label="Instructions"
+                  multiline
+                  rows={8}
+                  variant="outlined"
+                  name='ingredientText' value={recipe.instructions} 
+                  onChange={(e) => handleRecipeUpdate(e)} 
+                />
 
-          <label>
-            Tags (Comma Seperated):
-            <input type="text" name='tags' value={recipe.tags}
-            
-            onChange={(e) => handleRecipeUpdate(e)}  />
-          </label>  
+        <TextField label="Tags (Comma Seperated):" name='tags' value={recipe.tags} 
+            fullWidth onChange={(e) => handleRecipeUpdate(e)} />
 
-          <button type='submit'>Submit</button>
+        <Button variant="contained" type='submit'
+        color="primary" size="large" style={{width:150, margin:'10px 0px'}}>
+        Submit
+        </Button>
         </form>
     </div>
 }

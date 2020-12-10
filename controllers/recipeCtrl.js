@@ -69,13 +69,12 @@ const getRecipes = async (req, res, next) => {
         res.redirect('/')
     } else {
 
-        let { title } = req.query
+        let { title } = req.query || ''
 
-        title = `.*${title || ''}.*`
+        const re = new RegExp(title)
 
         const recipe = await Recipe
-            .find({ title: { $regex: title, $options: 'i' } }).sort('title').limit(5);
-        console.log(recipe)
+            .find({ title: { $regex: re, $options: 'i' } }).sort('title');
         res.json(recipe)
     }
 }

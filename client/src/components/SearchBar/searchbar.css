@@ -1,5 +1,8 @@
-.search-bar form{
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
+.search-bar {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  margin: 10px auto;
+  max-width: 95%;
 }
