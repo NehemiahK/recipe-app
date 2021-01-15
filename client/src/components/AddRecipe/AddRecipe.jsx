@@ -151,7 +151,7 @@ const AddRecipe = () => {
                   multiline
                   rows={8}
                   variant="outlined"
-                  name='ingredientText' value={recipe.instructions} 
+                  name='instructions' value={recipe.instructions} 
                   onChange={(e) => handleRecipeUpdate(e)} 
                 />
 
